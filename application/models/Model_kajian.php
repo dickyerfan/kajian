@@ -10,13 +10,20 @@ class Model_kajian extends CI_Model
         $this->db->join('ustadz', 'ustadz.id_ustadz = jadwal_kajian.id_ustadz');
         $this->db->join('kitab', 'kitab.id_kitab = jadwal_kajian.id_kitab');
         $this->db->join('waktu', 'waktu.id_waktu = jadwal_kajian.id_waktu');
+        $this->db->join('mesjid', 'mesjid.id_mesjid = jadwal_kajian.id_mesjid');
         return $this->db->get()->result();
     }
 
     public function tambahData()
     {
         $data = [
-            "nama_kajian" => $this->input->post('nama_kajian', true),
+            "id_ustadz" => $this->input->post('id_ustadz', true),
+            "id_kitab" => $this->input->post('id_kitab', true),
+            "id_waktu" => $this->input->post('id_waktu', true),
+            "id_mesjid" => $this->input->post('id_mesjid', true),
+            "hari_kajian" => $this->input->post('hari_kajian', true),
+            "waktu_kajian" => $this->input->post('waktu_kajian', true),
+            "keterangan" => $this->input->post('keterangan', true),
         ];
         $this->db->insert('jadwal_kajian', $data);
     }
@@ -36,9 +43,16 @@ class Model_kajian extends CI_Model
     {
 
         $data = [
-            "nama_kajian" => $this->input->post('nama_kajian', true),
+            "id_ustadz" => $this->input->post('id_ustadz', true),
+            "id_kitab" => $this->input->post('id_kitab', true),
+            "id_waktu" => $this->input->post('id_waktu', true),
+            "id_mesjid" => $this->input->post('id_mesjid', true),
+            "hari_kajian" => $this->input->post('hari_kajian', true),
+            "waktu_kajian" => $this->input->post('waktu_kajian', true),
+            "keterangan" => $this->input->post('keterangan', true),
+            "aktif" => $this->input->post('aktif', true)
         ];
-        $this->db->where('id_kajian', $this->input->post('id'));
+        $this->db->where('id_kajian', $this->input->post('id_kajian'));
         $this->db->update('jadwal_kajian', $data);
     }
 }

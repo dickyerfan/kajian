@@ -9,9 +9,9 @@ class Ustadz extends CI_Controller
         parent::__construct();
         $this->load->model('model_ustadz');
         $this->load->library('form_validation');
-        // if (!$this->session->userdata('nama_pengguna')) {
-        //     redirect('auth');
-        // }
+        if (!$this->session->userdata('nama_pengguna')) {
+            redirect('publik');
+        }
     }
     public function index()
     {

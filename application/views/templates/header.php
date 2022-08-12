@@ -27,6 +27,56 @@
 			background-position: center;
 			background-repeat: no-repeat;
 		} */
+        @font-face {
+            font-family: 'Pristina';
+            src: url("<?= base_url('assets/fonts/PRISTINA.TTF') ?>");
+        }
+
+        @font-face {
+            font-family: 'Scada';
+            src: url("<?= base_url('assets/fonts/Scada-Regular.ttf') ?>");
+        }
+
+        @font-face {
+            font-family: 'Sego';
+            src: url("<?= base_url('assets/fonts/Segoeprb.ttf') ?>");
+        }
+
+        @font-face {
+            font-family: 'Tempus';
+            src: url("<?= base_url('assets/fonts/TEMPSITC.TTF') ?>");
+        }
+
+        @font-face {
+            font-family: 'Papirus';
+            src: url("<?= base_url('assets/fonts/PAPYRUS.TTF') ?>");
+        }
+
+        @font-face {
+            font-family: 'One';
+            src: url("<?= base_url('assets/fonts/75749_.ttf') ?>");
+        }
+
+        @font-face {
+            font-family: 'Arial';
+            src: url("<?= base_url('assets/fonts/ARIALN.TTF') ?>");
+        }
+
+        .kitab {
+            font-family: 'Pristina';
+        }
+
+        .ustadz {
+            font-family: 'Tempus';
+        }
+
+        .ket_ustadz {
+            font-family: 'Arial';
+        }
+
+        .title {
+            font-family: 'Scada';
+        }
 
         .hilang {
             display: none;

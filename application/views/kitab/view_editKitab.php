@@ -16,10 +16,15 @@
                                     <input type="text" class="form-control" id="nama_kitab" name="nama_kitab" value="<?= $kitab->nama_kitab; ?>">
                                     <small class="form-text text-danger pl-3"><?= form_error('nama_kitab'); ?></small>
                                 </div>
+                                <div class="form-group">
+                                    <label for="ket_kitab">Keterangan :</label>
+                                    <input type="text" class="form-control" id="ket_kitab" name="ket_kitab" value="<?= $kitab->ket_kitab; ?>">
+                                    <small class="form-text text-danger pl-3"><?= form_error('ket_kitab'); ?></small>
+                                </div>
                             </div>
                         </div>
 
-                        <button class="btn btn-primary btn-sm float-left mt-1" name="tambah" type="submit"><i class="fas fa-edit"></i> Update kitab</button>
+                        <button class="btn btn-primary btn-sm float-left mt-1" name="tambah" type="submit"><i class="fas fa-edit"></i> Update Kitab</button>
                     </form>
                 </div>
             </div>

@@ -9,9 +9,9 @@ class Mesjid extends CI_Controller
         parent::__construct();
         $this->load->model('model_mesjid');
         $this->load->library('form_validation');
-        // if (!$this->session->userdata('nama_pengguna')) {
-        //     redirect('auth');
-        // }
+        if (!$this->session->userdata('nama_pengguna')) {
+            redirect('publik');
+        }
     }
     public function index()
     {
@@ -30,7 +30,7 @@ class Mesjid extends CI_Controller
         $this->form_validation->set_rules('nama_mesjid', 'Tempat Kajian', 'required|trim');
         $this->form_validation->set_rules('alamat_mesjid', 'Alamat', 'required|trim');
         $this->form_validation->set_rules('lokasi_mesjid', 'Peta Lokasi', 'required|trim');
-        $this->form_validation->set_rules('foto_mesjid', 'Foto', 'required|trim');
+        // $this->form_validation->set_rules('foto_mesjid', 'Foto', 'required|trim');
         $this->form_validation->set_message('required', '%s Harus di isi');
 
         if ($this->form_validation->run() == false) {
@@ -54,9 +54,9 @@ class Mesjid extends CI_Controller
         }
     }
 
-    public function edit($id)
+    public function edit($id_mesjid)
     {
-        $data['mesjid'] = $this->model_mesjid->getIdmesjid($id);
+        $data['mesjid'] = $this->model_mesjid->getIdmesjid($id_mesjid);
         $data['title'] = 'Form Edit Tempat Kajian';
         $this->load->view('templates/header', $data);
         $this->load->view('templates/navbar');

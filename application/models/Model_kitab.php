@@ -12,6 +12,7 @@ class Model_kitab extends CI_Model
     {
         $data = [
             "nama_kitab" => $this->input->post('nama_kitab', true),
+            "ket_kitab" => $this->input->post('ket_kitab', true)
         ];
         $this->db->insert('kitab', $data);
     }
@@ -32,6 +33,7 @@ class Model_kitab extends CI_Model
 
         $data = [
             "nama_kitab" => $this->input->post('nama_kitab', true),
+            "ket_kitab" => $this->input->post('ket_kitab', true)
         ];
         $this->db->where('id_kitab', $this->input->post('id'));
         $this->db->update('kitab', $data);

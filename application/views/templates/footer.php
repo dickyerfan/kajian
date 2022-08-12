@@ -76,7 +76,7 @@
     })
 </script>
 
-<script>
+<!-- <script>
     const daftar_kajian = document.querySelectorAll('.btn-primary');
     for (let i = 0; i < daftar_kajian.length; i++) {
         daftar_kajian[i].addEventListener('click', function() {
@@ -88,7 +88,7 @@
             alamat[i].classList.toggle('hilang');
         });
     }
-</script>
+</script> -->
 
 </body>
 

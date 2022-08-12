@@ -20,6 +20,7 @@
                                     <th class=" text-center">Tempat Kajian</th>
                                     <th class=" text-center">Alamat</th>
                                     <th class=" text-center">Foto</th>
+                                    <th class=" text-center">Status</th>
                                     <!-- <th class=" text-center">Peta Lokasi</th> -->
                                 </tr>
                             </thead>
@@ -38,6 +39,7 @@
                                         <td><?= $row->nama_mesjid ?></td>
                                         <td><?= $row->alamat_mesjid ?></td>
                                         <td><?= $row->foto_mesjid ?></td>
+                                        <td><?= $row->aktif == 1 ? 'Aktif' : 'Tidak' ?></td>
                                         <!-- <td><?= $row->lokasi_mesjid ?></td> -->
                                     </tr>
                                 <?php endforeach; ?>

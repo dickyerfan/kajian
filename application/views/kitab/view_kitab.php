@@ -17,6 +17,7 @@
                                 <tr class="bg-secondary">
                                     <th class=" text-center">No</th>
                                     <th class=" text-center">Nama Kitab</th>
+                                    <th class=" text-center">keterangan</th>
                                     <th class=" text-center">Action</th>
                                 </tr>
                             </thead>
@@ -28,6 +29,7 @@
                                     <tr>
                                         <td class="text-center"><small><?= $no++ ?></small></td>
                                         <td><?= $row->nama_kitab ?></td>
+                                        <td><?= $row->ket_kitab ?></td>
                                         <td class="text-center">
                                             <a href="<?= base_url(); ?>kajian/kitab/edit/<?= $row->id_kitab; ?>"><span class="btn btn-primary btn-sm"><i class=" fas fa-fw fa-edit"></i> Edit</span></a>
                                             <a href="<?= site_url('kajian/kitab/hapus/' . $row->id_kitab); ?>" class="btn btn-danger btn-sm"><i class="fas fa-fw fa-trash"></i> Hapus</a>
