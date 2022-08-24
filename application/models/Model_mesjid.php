@@ -19,12 +19,12 @@ class Model_mesjid extends CI_Model
             $this->load->library('upload', $config);
             if (!$this->upload->do_upload('foto_mesjid')) {
                 // echo "Photo Gagal diUpload!";
-                $photo = 'default.png';
+                $photo = 'default.jpg';
             } else {
                 $photo = $this->upload->data('file_name');
             }
         } else {
-            $photo = 'default.png';
+            $photo = 'default.jpg';
         }
 
         $data = [

@@ -7,7 +7,7 @@ class Model_backup extends CI_Model
     {
         $cek = $this->db->query("SHOW TABLES");
         if ($cek->num_rows() > 0) {
-            $query = $this->db->query("DROP TABLE masukan semua tabel di database dipisah koma ");
+            $query = $this->db->query("DROP TABLE jadwal_kajian,kitab, mesjid, user, ustadz, waktu ");
             return $query;
         } else {
             return true;

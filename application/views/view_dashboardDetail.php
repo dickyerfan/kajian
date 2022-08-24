@@ -65,7 +65,7 @@
                                     <h4 class="card-title kitab"><i class="fas fa-book-open fa-fw"></i> <?= $row->nama_kitab ?></h4>
                                     <h5 class="card-text ms-4 kitab"><i><?= $row->ket_kitab == null ? '<br>' : $row->ket_kitab ?></i></h5>
                                     <hr>
-                                    <h6 class="card-title ustadz"><i class="fas fa-user fa-fw"></i> Ustadz <b><?= $row->nama_ustadz ?></b></h6>
+                                    <h6 class="card-title ustadz"><i class="fas fa-user fa-fw"></i> Ust. <b><?= $row->nama_ustadz ?></b> حَفِظَهُ اللهُ</h6>
                                     <p class="ket_ustadz"><i class="fas fa-id-card fa-fw"></i> <small> <?= $row->ket_ustadz == null ? '<br>' : $row->ket_ustadz ?></small></p>
                                     <hr>
                                     <b><i class="fas fa-clock fa-fw"></i> <?= $row->nama_waktu ?></b><br>

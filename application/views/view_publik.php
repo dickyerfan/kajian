@@ -76,7 +76,11 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-sm fixed-top navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-sm fixed-top navbar-dark" style="background: linear-gradient(
+                                            45deg,
+                                            rgba(0, 0, 0, 0.9),
+                                            rgba(0, 0, 0, 0.7) 100%
+                                            )">
         <div class="container-fluid">
             <a class="navbar-brand title"><?= strtoupper($title) ?></a>
             <form class="d-flex">
@@ -88,13 +92,52 @@
         <main>
             <div class="container-fluid px-1 mt-2">
                 <div class="card">
-                    <!-- <div class="card-header shadow text-light" style="background: linear-gradient(
+                    <div class="card-header shadow text-light float-end" style="background: linear-gradient(
                                             45deg,
                                             rgba(0, 0, 0, 0.9),
                                             rgba(0, 0, 0, 0.7) 100%
                                             )">
-                        <h4 class="card-title"><?= strtoupper($title) ?></h4>
-                    </div> -->
+                        <div class="row">
+                            <div class="col-6">
+                                <h5 class="card-title title mt-3"><?php
+                                                                    date_default_timezone_set('Asia/Jakarta');
+                                                                    $bulan = date('m');
+                                                                    $bulanList = array(
+                                                                        '01' => 'Januari',
+                                                                        '02' => 'Februari',
+                                                                        '03' => 'Maret',
+                                                                        '04' => 'April',
+                                                                        '05' => 'Mei',
+                                                                        '06' => 'Juni',
+                                                                        '07' => 'Juli',
+                                                                        '08' => 'Agustus',
+                                                                        '09' => 'September',
+                                                                        '10' => 'Oktober',
+                                                                        '11' => 'November',
+                                                                        '12' => 'Desember'
+                                                                    );
+                                                                    $tanggal = date('d') . ' ' . $bulanList[$bulan] . ' ' . date('Y');
+                                                                    $hari = date('D');
+                                                                    $hari = date('D', strtotime($hari));
+                                                                    $dayList = array(
+                                                                        'Sun' => 'Ahad',
+                                                                        'Mon' => 'Senin',
+                                                                        'Tue' => 'Selasa',
+                                                                        'Wed' => 'Rabu',
+                                                                        'Thu' => 'Kamis',
+                                                                        'Fri' => 'Jum\'at',
+                                                                        'Sat' => 'Sabtu'
+                                                                    );
+                                                                    echo $dayList[$hari]  . '  ' . $tanggal
+                                                                    ?>
+                                </h5>
+                            </div>
+                            <div class="col-6 text-end mt-2">
+                                <h5 class="card-title title btn btn-outline-light" id="jam">
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
                     <div class="card-body" style="background: linear-gradient(
                                             45deg,
                                             rgba(29, 236, 197, 0.7),
@@ -138,6 +181,46 @@
                                 $rowCount++;
                                 if ($rowCount % $numOfCols == 0) echo '</div><div class="row">';
                             endforeach; ?>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-sm-6 mb-1">
+                                <div class="card border-0" style="height:100% ;">
+                                    <div class="card-header" style="background: linear-gradient(
+                                            45deg,
+                                            rgba(91, 14, 214, 0.9),
+                                            rgba(29, 236, 197, 0.7)100%
+                                            )">
+                                        <h4 class="card-title text-light font-weight-bold title ps-3">Informasi :</h4>
+                                    </div>
+                                    <div class="card-body text-dark" style="background: linear-gradient(
+                                            45deg,
+                                            rgba(184,200,252, 0.5),
+                                            rgba(255,255,255, 0.9) 100%
+                                            )">
+                                        <h5 class="card-title font-weight-bold title ps-3">Jadwal kajian diatas sewaktu-waktu bisa berubah atau di tiadakan jika Ustadz ada udzur atau kepentingan.</h5><br>
+                                        <h5 class="card-title font-weight-bold title ps-3"><i class="far fa-envelope"></i> : kajianbondowoso495@gmail.com</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 mb-1">
+                                <div class="card border-0" style="height:100% ;">
+                                    <div class="card-header ps-4" style="background: linear-gradient(
+                                            45deg,
+                                            rgba(91, 14, 214, 0.9),
+                                            rgba(29, 236, 197, 0.7)100%
+                                            )">
+                                        <h4 class="card-title text-light font-weight-bold title ps-3">Catatan :</h4>
+                                    </div>
+                                    <div class="card-body text-dark" style="background: linear-gradient(
+                                            45deg,
+                                            rgba(184,200,252, 0.5),
+                                            rgba(255,255,255, 0.9) 100%
+                                            )">
+                                        <h5 class="card-title font-weight-bold title ps-4">“Barangsiapa menempuh jalan menuntut ilmu, maka Allah akan memudahkan jalannya untuk menuju surga”<br> <small><i> (HR. At Tirmidzi no. 2682, Abu Daud no. 3641, dishahihkan Al Albani dalam Shahih Abu Daud).</i></small>
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -218,6 +301,30 @@
                 }
             })
         })
+    </script>
+
+    <script>
+        window.onload = function() {
+            jam();
+        }
+
+        function jam() {
+            var e = document.getElementById('jam'),
+                d = new Date(),
+                h, m, s;
+            h = d.getHours();
+            m = set(d.getMinutes());
+            s = set(d.getSeconds());
+
+            e.innerHTML = h + ' : ' + m + ' : ' + s + ' WIB';
+
+            setTimeout('jam()', 1000);
+        }
+
+        function set(e) {
+            e = e < 10 ? '0' + e : e;
+            return e;
+        }
     </script>
 
 </body>

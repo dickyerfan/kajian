@@ -94,14 +94,54 @@
             </form>
         </div>
     </nav>
+    <div class="card mt-5">
+        <div class="card-footer">
+            <div class="row">
+                <div class="col">
+                    <h5 class="card-title title mt-3"><?php
+                                                        date_default_timezone_set('Asia/Jakarta');
+                                                        $bulan = date('m');
+                                                        $bulanList = array(
+                                                            '01' => 'Januari',
+                                                            '02' => 'Februari',
+                                                            '03' => 'Maret',
+                                                            '04' => 'April',
+                                                            '05' => 'Mei',
+                                                            '06' => 'Juni',
+                                                            '07' => 'Juli',
+                                                            '08' => 'Agustus',
+                                                            '09' => 'September',
+                                                            '10' => 'Oktober',
+                                                            '11' => 'November',
+                                                            '12' => 'Desember'
+                                                        );
+                                                        $tanggal = date('d') . ' ' . $bulanList[$bulan] . ' ' . date('Y');
+                                                        $hari = date('D');
+                                                        $hari = date('D', strtotime($hari));
+                                                        $dayList = array(
+                                                            'Sun' => 'Ahad',
+                                                            'Mon' => 'Senin',
+                                                            'Tue' => 'Selasa',
+                                                            'Wed' => 'Rabu',
+                                                            'Thu' => 'Kamis',
+                                                            'Fri' => 'Jum\'at',
+                                                            'Sat' => 'Sabtu'
+                                                        );
+                                                        echo $dayList[$hari]  . '  ' . $tanggal
+                                                        ?>
+                    </h5>
+                </div>
+                <div class="col text-end">
+                    <h5 class="title btn btn-outline-dark mt-2" id="jam"></h5>
+                </div>
+            </div>
+
+        </div>
+    </div>
     <div id="layoutSidenav_content">
         <main>
-            <div class="container-fluid px-2 mt-2">
+            <div class="container-fluid px-2 mt-1">
                 <!-- <div class="card"> -->
-                <div class="card-header card-outline card-primary shadow">
-                    <a class="text-dark fw-bold" style="text-decoration: none;"><?= strtoupper($title) ?></a>
-                    <a href="<?= base_url() ?>publik" class="btn btn-primary btn-sm float-end">Kembali</a>
-                </div>
                 <div class="card-body">
                     <?php
                     $numOfCols = 3;
@@ -159,7 +199,7 @@
                                         <h3 class="card-title kitab"><i class="fas fa-book-open fa-fw"></i> <?= $row->nama_kitab ?></h3>
                                         <h5 class="card-text ms-4 kitab"><i><?= $row->ket_kitab == null ? '<br>' : $row->ket_kitab ?></i></h5>
                                         <hr>
-                                        <h6 class="card-title ustadz"><i class="fas fa-user fa-fw"></i> Ustadz <b><?= $row->nama_ustadz ?></b></h6>
+                                        <h6 class="card-title ustadz"><i class="fas fa-user fa-fw"></i> Ust. <b><?= $row->nama_ustadz ?> حَفِظَهُ اللهُ</b></h6>
                                         <p class="ket_ustadz"><i class="fas fa-id-card fa-fw"></i> <small> <?= $row->ket_ustadz == null ? '<br>' : $row->ket_ustadz ?></small></p>
                                         <hr>
                                         <b><i class="fas fa-clock fa-fw"></i> <?= $row->nama_waktu ?></b><br>
@@ -254,6 +294,30 @@
                 }
             })
         })
+    </script>
+
+    <script>
+        window.onload = function() {
+            jam();
+        }
+
+        function jam() {
+            var e = document.getElementById('jam'),
+                d = new Date(),
+                h, m, s;
+            h = d.getHours();
+            m = set(d.getMinutes());
+            s = set(d.getSeconds());
+
+            e.innerHTML = h + ' : ' + m + ' : ' + s + ' WIB';
+
+            setTimeout('jam()', 1000);
+        }
+
+        function set(e) {
+            e = e < 10 ? '0' + e : e;
+            return e;
+        }
     </script>
 
 </body>

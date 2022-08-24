@@ -18,6 +18,7 @@ class Publik extends CI_Controller
 
         $data['title'] = 'Daftar Kajian Ilmiyah Bondowoso';
         $data['mesjid'] = $this->model_dashboard->getAllMesjid();
+        $data['kajian'] = $this->model_dashboard->getAllDetail();
         $this->load->view('view_publik', $data);
     }
 
