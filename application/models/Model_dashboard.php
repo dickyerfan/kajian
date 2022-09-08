@@ -23,7 +23,7 @@ class Model_dashboard extends CI_Model
         $this->db->join('waktu', 'waktu.id_waktu = jadwal_kajian.id_waktu');
         $this->db->join('mesjid', 'mesjid.id_mesjid = jadwal_kajian.id_mesjid');
         $this->db->where('jadwal_kajian.id_mesjid', $id);
-        $this->db->where('jadwal_kajian.aktif', 1);
+        $this->db->where('jadwal_kajian.status_aktif', 1);
         $this->db->order_by('hari_kajian', 'ASC');
         return $this->db->get()->result();
     }

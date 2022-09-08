@@ -71,8 +71,8 @@
                                 <div class="form-group mb-2">
                                     <select name="aktif" id="aktif" class="form-select">
                                         <option value="">Status Kajian</option>
-                                        <option value="1" <?= $kajian->aktif == 1 ? 'selected' : '' ?>>Aktif</option>
-                                        <option value="0" <?= $kajian->aktif == 0 ? 'selected' : '' ?>>Tidak</option>
+                                        <option value="1" <?= $kajian->status_aktif == 1 ? 'selected' : '' ?>>Aktif</option>
+                                        <option value="0" <?= $kajian->status_aktif == 0 ? 'selected' : '' ?>>Tidak</option>
                                     </select>
                                     <small class="form-text text-danger pl-3"><?= form_error('aktif'); ?></small>
                                 </div>

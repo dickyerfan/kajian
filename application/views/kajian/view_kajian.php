@@ -71,7 +71,7 @@
                                         ?>
                                         <td><?= $hari; ?></td>
                                         <td><?= $row->waktu_kajian ?></td>
-                                        <td><?= $row->aktif == 1 ? 'Aktif' : 'Tidak' ?></td>
+                                        <td><?= $row->status_aktif == 1 ? 'Aktif' : 'Tidak' ?></td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>

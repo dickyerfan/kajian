@@ -50,7 +50,7 @@ class Model_kajian extends CI_Model
             "hari_kajian" => $this->input->post('hari_kajian', true),
             "waktu_kajian" => $this->input->post('waktu_kajian', true),
             "keterangan" => $this->input->post('keterangan', true),
-            "aktif" => $this->input->post('aktif', true)
+            "status_aktif" => $this->input->post('aktif', true)
         ];
         $this->db->where('id_kajian', $this->input->post('id_kajian'));
         $this->db->update('jadwal_kajian', $data);
