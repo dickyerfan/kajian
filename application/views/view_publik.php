@@ -72,6 +72,36 @@
                 font-size: 12px !important;
             }
         }
+
+        #btn-up {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            bottom: 20px;
+            right: 20px;
+            cursor: pointer;
+            font-size: 15px;
+            background: rgba(192, 192, 192, 0.5);
+            color: #000;
+            border: none;
+            outline: none;
+            padding: 5px 10px;
+        }
+
+        #btn-up:hover {
+            opacity: 0.5;
+        }
+
+        #btn-up:active {
+            opacity: 0.9;
+        }
+
+        .fa-chevron-circle-up {
+            font-size: 30px;
+            line-height: 40px;
+            color: #01daec;
+        }
     </style>
 </head>
 
@@ -226,6 +256,7 @@
                 </div>
             </div>
         </main>
+        <button id="btn-up"><i class="fas fa-chevron-circle-up"></i></button>
         <footer class="py-2 bg-light mt-auto">
             <div class="container-fluid px-4">
                 <div class="d-flex align-items-center justify-content-between small">
@@ -280,6 +311,12 @@
     <script>
         $('.select2').select2({
             theme: 'bootstrap-5'
+        });
+
+        $("#btn-up").click(function() {
+            $("html,body").animate({
+                scrollTop: 0
+            }, 500);
         });
     </script>
 
